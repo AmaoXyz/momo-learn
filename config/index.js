@@ -16,7 +16,7 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
-      }},
+    }},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
