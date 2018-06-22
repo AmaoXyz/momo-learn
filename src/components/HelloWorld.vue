@@ -16,10 +16,14 @@
 <style>
     .acc{
         display: block;
-        margin: 0 auto;
+        margin: 10px auto;
+        width: 300px;
+        height: 40px;
     }
     .acc1{
-        margin: 0 10px;
+        margin: 10px 30px;
+        width: 100px;
+        height: 40px;
     }
 
     h1,h2{
@@ -27,10 +31,10 @@
     }
 
     .kuai{
-        width: 200px;
+        width: 500px;
         height: 200px;
         margin: 0 auto;
-        padding-top: 200px;
+        padding-top: 20px;
     }
 
     .hello{
