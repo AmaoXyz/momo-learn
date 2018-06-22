@@ -33,8 +33,6 @@ moudles.PoolMySQL = function(sql,callback){
                     callback(true,'查询不到信息!');
                     return;
                 }
-
-                console.log('-------->>',result)
                 callback(false,'success',result);
             });
         }
