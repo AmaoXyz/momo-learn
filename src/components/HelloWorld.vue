@@ -1,22 +1,38 @@
 <template>
-  <div class="hello">
-      <h1>Welcome to Your Vue.js App</h1>
-      <h2>Essential Links</h2>
-      <div>
-          <button type="submit" class="btn" @click="login">查询数据库</button>
-      </div>
-  </div>
+    <div class="hello">
+        <h1>Welcome to Your Vue.js App</h1>
+        <h2>Essential Links</h2>
+        <div>
+            <input  class="acc" placeholder="请输入账号" v-model="account">
+            <input  class="acc" type="password"  placeholder="请输入密码" v-model="password">
+            <button class="acc" type="submit"  @click="addUser">新增用户</button>
+        </div>
+    </div>
 </template>
+
+<style>
+    .acc{
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+</style>
 
 <script>
 export default {
     name: 'HelloWorld',
+    data() {
+        return {
+            account: '',
+            password: ''
+        }
+    },
     methods : {
-        login() {
-            this.$http.post('/api/test', {common : 'user'}).then((response) => {
-                console.log(response.body)
+        addUser() {
+            this.$http.post('/api/register', {account : this.account,password : this.password}).then((response) => {
+                console.log('---------------->>>',response.body)
             }).catch((reject) => {
-                console.log('methods ------2------ ',reject)
+                console.log(reject)
             })
         }
     }
