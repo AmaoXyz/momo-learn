@@ -3,6 +3,7 @@ const MySQL = require('./MysqlManage');
 const express = require('express');
 const router = express.Router();
 
+//用户数据实例
 Role = require('./Role')
 
 // 用户注册

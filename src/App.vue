@@ -7,11 +7,14 @@
 </template>
 
 <script>
+    // 引入组件
     import HeaderDiv from './components/header'
     import FooterDiv from './components/footer'
+
+
     export default {
         name: 'App',
-        components :{
+        components :{  // 定义组件
             HeaderDiv,
             FooterDiv
         }
@@ -25,9 +28,9 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        width: 1920px;
+        /*width: 1920px;*/
         margin: 0 auto;
-        min-width: 1920px;
+        /*min-width: 1920px;*/
     }
 
 </style>
