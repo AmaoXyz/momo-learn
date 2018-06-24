@@ -4,11 +4,11 @@ const express = require('express');
 const router = express.Router();
 
 var connection = {
-    host     : '192.168.1.66',         // 数据库地址
-    port     : '3306',              // 数据库端口
-    user     : 'root',              // 登陆用户名
-    password : 'ly314926',          // 登陆密码
-    database : 'role'               // 数据库名
+    host     : '192.168.3.9',                 // 数据库地址
+    port     : '3306',                 // 数据库端口
+    user     : 'root',                  // 登陆用户名
+    password : 'ly314926',              // 登陆密码
+    database : 'role'                   // 数据库名
 };
 
 var pool = mysql.createPool(connection);

@@ -16,7 +16,6 @@ const routers = [
         // children:[
         //     {
         //         path: 'login',
-        //         name: 'login',
         //         component: Login
         //     },
         // ]

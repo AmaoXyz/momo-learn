@@ -1,24 +1,29 @@
 <template>
     <footer class="footers">
-        <div class = "title">
-            <label style="color:ghostwhite;font-size: 60px">十步杀一人,千里不留行</label>
-        </div>
+        <p>
+            Copyright&nbsp;&copy;&nbsp;{{author}} - 2016 All rights reserved
+        </p>
     </footer>
 </template>
 
 <script>
     export default {
-        name: "footers",
-        data() {
+        name: 'footers',
+        data () {
             return {
 
             }
         },
+        computed: {
+            author () {
+                return this.$store.state.author
+            }
+        }
     }
 </script>
 
 <style>
-    .title{
+    .footers{
         background: darkgrey;
     }
 </style>
