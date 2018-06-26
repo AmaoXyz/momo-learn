@@ -8,8 +8,7 @@ import Vuex from 'vuex'
 import store from './vuex/store'
 
 import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-
+import 'element-ui/lib/theme-chalk/index.css'
 
 import App from './App'
 
@@ -29,5 +28,8 @@ new Vue({
     el: '#app',
     router,
     store,
-    render: h => h(App)
+    render: h => h(App),
+    data: {
+        eventHub: new Vue()        // 空Vue 分发事件
+    }
 })

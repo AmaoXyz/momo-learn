@@ -31,6 +31,14 @@ module.exports = {
   },
   module: {
     rules: [
+        {
+            test: /\\\\\\\\.css$/,
+            loader: "style!css"
+        },
+        {
+            test: /\\\\\\\\.(eot|woff|woff2|ttf)([\\\\\\\\?]?.*)$/,
+            loader: "file"
+        },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

@@ -6,8 +6,8 @@
                 <input  class="acc" type="password"  placeholder="请输入密码" v-model="password">
             </div>
             <div>
-                <button class="acc1" type="submit"  @click="addUser">注册</button>
-                <button class="acc1" type="submit"  @click="login">登陆</button>
+                <el-button class="acc1" type="primary"  @click="addUser" >~注册~</el-button>
+                <el-button class="acc1" type="primary"  @click="login" >~登陆~</el-button>
             </div>
         </div>
     </div>
@@ -32,7 +32,6 @@
 
     .kuai{
         width: 500px;
-        /*height: 200px;*/
         margin: 0 auto;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -40,8 +39,6 @@
 
     .Lobby{
         background: url("../assets/timg.png");
-        /*width: 1920px;*/
-        /*height: 1200px;*/
         margin: 0 auto;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -54,43 +51,49 @@
         data() {
             return {
                 account: '',
-                password: ''
+                password: '',
             }
         },
         methods : {
             addUser() {
                 if (this.account == ''){
-                    alert('请输入用户名')
+                    this.$message({type: 'error', message: '请输入用户名'});
                     return
                 }
                 if (this.password == ''){
-                    alert('请输入密码')
+                    this.$message({type: 'error', message: '请输入密码'});
                     return
                 }
+                this.$root.eventHub.$emit('showLoading', {})
                 this.$http.post('/api/register', {account : this.account,password : this.password}).then((response) => {
-                    console.log('---------------->>>',response.body)
-                    alert(response.body.msg)
+                    this.$message({type: 'success', message: response.body.msg});
+                    this.$root.eventHub.$emit('hideLoading', {})
                 }).catch((reject) => {
                     console.log(reject)
+                    this.$root.eventHub.$emit('hideLoading', {})
                 })
             },
             login(){
                 if (this.account == ''){
-                    alert('请输入用户名')
+                    this.$message({type: 'error', message: '请输入用户名'});
                     return
                 }
                 if (this.password == ''){
-                    alert('请输入密码')
+                    this.$message({type: 'error', message: '请输入密码'});
                     return
                 }
+
+                this.$root.eventHub.$emit('showLoading', {})
                 this.$http.post('/api/login', {account : this.account,password : this.password}).then((response) => {
-                    alert(response.body.msg)
+                    this.$message({type: 'success', message: response.body.msg});
                     // 登陆成功后 界面跳转
                     if (response.body.code == 1){
                         this.$router.push('login')
                     }
+                    this.$root.eventHub.$emit('hideLoading', {})
                 }).catch((reject) => {
                     console.log(reject)
+                    this.$root.eventHub.$emit('hideLoading', {})
                 })
             }
         }

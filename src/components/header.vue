@@ -1,47 +1,32 @@
 <template>
-    <header class="headers">
-        <el-menu router :default-active="$route.path" class="el-menu" @open="handleOpen" @close="handleClose" theme="dark">
-            <el-menu-item v-for="nn in navs" :index=nn.index>
-                <samp>{{nn.lis}}</samp>
-            </el-menu-item>
-        </el-menu>
-    </header>
+    <el-tabs v-model='pageIndex'  @tab-click="handleClick">
+        <el-tab-pane label="欢迎" name="1"></el-tab-pane>
+        <el-tab-pane label="用户" name="2"></el-tab-pane>
+        <el-tab-pane label="主页" name="3"></el-tab-pane>
+        <el-tab-pane label="说说" name="4"></el-tab-pane>
+    </el-tabs>
 </template>
-
 <script>
-
     export default {
-        name: "headers",
         data() {
             return {
-                navs : [
-                    {lis : '主页',index : 'login'},
-                    {lis : '日志',index : 'login'},
-                    {lis : '说说',index : 'login'},
-                    {lis : '相册',index : 'login'},
-                    {lis : '资料',index : 'login'},
-                    {lis : '客服',index : 'login'},
-                ]
-            }
+                pageIndex : '1',
+            };
         },
-    }
+        methods: {
+            handleClick(tab, event) {
+                if (tab.name == 1){
+                    this.$router.push('Lobby')
+                }else{
+                    this.$router.push('login')
+                }
+            }
+        }
+    };
 </script>
 
 <style>
-    .headers{
-        height: 60px;
-        background: darkgrey;
-    }
-    el-menu-item{
-    }
-    samp{
-        color: red;
-        /*margin: 0 auto;*/
-    }
-    li{
-        list-style: none;
+    el-tab-pane{
         float: left;
-        /*float:left;*/
-        /*width: 60px;*/
     }
 </style>
