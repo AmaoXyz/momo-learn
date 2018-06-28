@@ -1,7 +1,7 @@
 <template>
     <div class="Login">
         <div class="kuai1">
-            <button class="acc1" type="submit"  @click='goto'>返回主界面</button>
+            <button class="acc1" type="submit"  @click='copy'>返回主界面</button>
         </div>
     </div>
 </template>
@@ -33,14 +33,21 @@
         name : 'login',
         data() {
             return {
-
+                text : '12313123123'
             }
         },
         methods : {
             goto :function () {
                 this.$router.push('Lobby')
+            },
+            copy:function (str){
+                var save = function (e){
+                    e.clipboardData.setData('text/plain',str);//下面会说到clipboardData对象
+                    e.preventDefault();//阻止默认行为
+                }
+                document.addEventListener('copy',save);
+                document.execCommand("copy");//使文档处于可编辑状态，否则无效
             }
         },
-
     }
 </script>

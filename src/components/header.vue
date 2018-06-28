@@ -1,11 +1,16 @@
 <template>
-    <el-tabs v-model='pageIndex'  @tab-click="handleClick">
-        <el-tab-pane label="欢迎" name="1"></el-tab-pane>
-        <el-tab-pane label="用户" name="2"></el-tab-pane>
-        <el-tab-pane label="主页" name="3"></el-tab-pane>
-        <el-tab-pane label="说说" name="4"></el-tab-pane>
-    </el-tabs>
+    <div>
+        <el-hi>L-momo-X</el-hi>
+    </div>
+
+    <!--<el-tabs v-model='pageIndex'  @tab-click="handleClick">-->
+        <!--<el-tab-pane label="欢迎" name="1"></el-tab-pane>-->
+        <!--<el-tab-pane label="用户" name="2"></el-tab-pane>-->
+        <!--<el-tab-pane label="主页" name="3"></el-tab-pane>-->
+        <!--<el-tab-pane label="说说" name="4"></el-tab-pane>-->
+    <!--</el-tabs>-->
 </template>
+
 <script>
     export default {
         data() {

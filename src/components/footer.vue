@@ -24,6 +24,6 @@
 
 <style>
     .footers{
-        background: darkgrey;
+        /*background: darkgrey;*/
     }
 </style>
